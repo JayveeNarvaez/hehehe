@@ -1,0 +1,264 @@
+<!DOCTYPE html> 
+
+<html lang="en"> 
+
+  
+
+<head> 
+
+    <meta charset="UTF-8"> 
+
+    <meta name="viewport" content
+
+        ="width=device-width, initial-scale=1.0"> 
+
+    <title>PLAY DICE</title> 
+
+  
+
+    <style> 
+
+        .container { 
+
+            width: 70%; 
+
+            margin: auto; 
+
+            text-align: center; 
+
+        } 
+
+  
+
+        .dice { 
+
+            text-align: center; 
+
+            display: inline-block; 
+
+            margin: 10px; 
+
+        } 
+
+  
+
+        body { 
+
+            background-color: Gray; 
+
+            margin: 0; 
+
+        } 
+
+  
+
+        h1 { 
+
+            margin: 30px; 
+
+            font-size: 65px; 
+
+            color: Black; 
+
+            text-align: center; 
+
+        } 
+
+  
+
+        p { 
+
+            font-size: 35px; 
+
+            color: black;
+
+        } 
+
+  
+
+        img { 
+
+            width: 30%; 
+
+        } 
+
+  
+
+        .bottom { 
+
+            padding-top: 30px; 
+
+        } 
+
+  
+
+        .butn { 
+
+            background:White;
+
+            color: black; 
+
+            font-size: 30px; 
+
+            padding: 16px 25px 16px 25px; 
+
+        } 
+
+  
+
+        .butn:hover { 
+
+            background: Green; 
+
+        } 
+
+    </style> 
+
+</head> 
+
+  
+
+<body> 
+
+    <div class="container"> 
+
+        <h1>Dice</h1> 
+
+  
+
+        <div class="dice"> 
+
+            <p class="P1">Player Name</p> 
+
+            <img class="img1" src="dice6.png"> 
+
+        </div> 
+
+  
+
+        <div class="dice"> 
+
+            <p class="P2">Player Name</p> 
+
+            <img class="img2" src="dice6.png"> 
+
+        </div> 
+
+    </div> 
+
+  
+
+    <div class="container bottom"> 
+
+        <button type="button" class="butn"
+
+            onClick="rollDice()"> 
+
+            Roll 
+
+        </button> 
+
+    </div> 
+
+    <div class="container bottom"> 
+
+        <button type="button" class="butn"
+
+            onClick="changeNames()"> 
+
+            Change Name
+
+        </button> 
+
+    </div> 
+
+  
+
+    <script> 
+
+
+        var player1 = "P1"; 
+
+        var player2 = "P2"; 
+
+
+        function changeNames() { 
+
+            p1 = prompt("Input Name"); 
+
+            p2 = prompt("Input Name"); 
+
+  
+
+            document.querySelector("p.P1") 
+
+                            .innerHTML = p1; 
+
+                              
+
+            document.querySelector("p.P2") 
+
+                            .innerHTML = p2; 
+
+        } 
+
+
+        function rollDice() { 
+
+            setTimeout(function () { 
+
+                var random1 = Math.floor(Math.random() * 6) + 1; 
+
+                var random2 = Math.floor(Math.random() * 6) + 1; 
+
+  
+
+                document.querySelector(".img1").setAttribute("src", 
+
+                    "dice" + random1 + ".png"); 
+
+  
+
+                document.querySelector(".img2").setAttribute("src", 
+
+                    "dice" + random2 + ".png"); 
+
+  
+
+                if (random1 === random2) { 
+
+                    document.querySelector("h1").innerHTML = "Draw!"; 
+
+                } 
+
+  
+
+                else if (random1 < random2) { 
+
+                    document.querySelector("h1").innerHTML 
+
+                        = (p2 + " WINNER"); 
+
+                } 
+
+  
+
+                else { 
+
+                    document.querySelector("h1").innerHTML 
+
+                        = (p1 + " WINNER"); 
+
+                } 
+
+            }, 2500); 
+
+        } 
+
+    </script> 
+
+</body> 
+
+  
+
+</html> 
